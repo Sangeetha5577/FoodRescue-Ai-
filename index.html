@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodRescue AI — Surplus Food Connector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">🌿 <strong>FoodRescue AI</strong></div>
+        <p class="tagline">Save Food. Find Support. Connect Communities.</p>
+    </header>
+
+    <main class="container">
+        <section class="card input-card">
+            <h2>Surplus Listing Details</h2>
+            <p class="subtitle">
+                Enter your surplus food details to discover potential donation partners.
+            </p>
+
+            <form id="searchForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="location">Location / Area</label>
+                        <input type="text" id="location" placeholder="e.g., Bengaluru" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="foodType">Food Type / Category</label>
+                        <input type="text" id="foodType" placeholder="e.g., Bread and pastries" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="text" id="quantity" placeholder="e.g., 35 kg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="availability">Availability Time</label>
+                        <input type="text" id="availability" placeholder="e.g., Today, 3 PM - 6 PM" required>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn" class="primary-btn">
+                    Find a Donation Partner
+                </button>
+            </form>
+        </section>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Searching for potential donation partners...</p>
+        </div>
+
+        <section id="resultsSection" class="results-section hidden">
+            <h2>Potential Donation Partners</h2>
+            <p class="warning-text">
+                Results are potential matches. Confirm food acceptance, safety,
+                and collection directly with each organisation.
+            </p>
+            <div id="resultsContainer" class="results-grid"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 FoodRescue AI &bull; Powered by TinyFish Web-Agent Technology</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
